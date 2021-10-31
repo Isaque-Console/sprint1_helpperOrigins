@@ -1,0 +1,23 @@
+{
+  "name": "sprint1_helpperorigins",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Isaque-Console/sprint1_helpperOrigins.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Isaque-Console/sprint1_helpperOrigins/issues"
+  },
+  "homepage": "https://github.com/Isaque-Console/sprint1_helpperOrigins#readme",
+  "devDependencies": {
+    "typescript": "^4.4.4"
+  }
+}
