@@ -93,15 +93,15 @@ var Aplicativo = {
     iniciarDados: function (cientistas) {
         Armazenamento["gravar"](cientistas);
     },
-    carregarDados: function () {
+    preencherTabela: function () {
         var cientistas = Armazenamento["buscar"]();
         // preencher o DOM com as linhas
         cientistas.forEach(function (cientista) { return DOM["adicionarCientista"](cientista); });
     },
     recarregar: function () {
         DOM["limparCientistas"]();
-        Aplicativo["carregarDados"]();
+        Aplicativo["preencherTabela"]();
     }
 };
 Aplicativo["iniciarDados"](lista);
-Aplicativo["carregarDados"]();
+Aplicativo["preencherTabela"]();

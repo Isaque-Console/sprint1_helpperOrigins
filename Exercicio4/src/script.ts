@@ -128,7 +128,7 @@ const Aplicativo: Object = {
         Armazenamento["gravar"](cientistas);
     },
 
-    carregarDados(): void {
+    preencherTabela(): void {
         let cientistas: Array<Object> = Armazenamento["buscar"]();
 
         // preencher o DOM com as linhas
@@ -137,10 +137,10 @@ const Aplicativo: Object = {
 
     recarregar(): void {
         DOM["limparCientistas"]();
-        Aplicativo["carregarDados"]();
+        Aplicativo["preencherTabela"]();
     }
 }
 
 Aplicativo["iniciarDados"](lista);
 
-Aplicativo["carregarDados"]();
+Aplicativo["preencherTabela"]();
