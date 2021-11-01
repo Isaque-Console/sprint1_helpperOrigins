@@ -1,11 +1,10 @@
 function contVogais() {
-    var campo = document.getElementById("palavra");
-    var palavra = campo.value;
-    var contador = 0;
-    var vogais = "aáàâãeéèêẽiíìîĩoóòôõuúùûũ";
-    var arrayPalavra = Array.from(palavra);
-    for (var i in arrayPalavra) { // conta a quantidade de vogais
-        if (vogais.includes(palavra[i].toLowerCase()))
+    let campo = document.getElementById("palavra");
+    let palavra = campo.value;
+    let contador = 0;
+    let vogais = "aáàâãeéèêẽiíìîĩoóòôõuúùûũ";
+    for (let letra of palavra.toLowerCase()) { // conta a quantidade de vogais
+        if (vogais.includes(letra))
             contador++;
     }
     alert(contador);

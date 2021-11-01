@@ -1,10 +1,9 @@
 function contVogais(palavra: string): number {
     let contador: number = 0;
     let vogais: string = "aáàâãeéèễẽiiíìîĩoóòôõuúùûũ";
-    let arrayPalavra: Array<string> = Array.from(palavra);
 
-    for(let i in arrayPalavra) { // conta a quantidade de vogais
-        if (vogais.includes(arrayPalavra[i].toLowerCase())) contador++;
+    for(let letra of palavra.toLowerCase()) { // conta a quantidade de vogais
+        if (vogais.includes(letra)) contador++;
     }
     
     return contador
