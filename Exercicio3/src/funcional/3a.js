@@ -1,14 +1,15 @@
 function isNumber(array) {
     var validation = true;
-    array.forEach(function (el) {
-        if (typeof (el) !== "number")
+    array.forEach(function (arrayElement) {
+        if (typeof (arrayElement) !== "number")
             validation = false;
     });
     return validation;
 }
 function average(array) {
     var sum = 0;
-    array.forEach(function (el) { sum += el; });
+    sum = array.reduce(function (previousValue, currentValue) { return previousValue + currentValue; });
+    // array.forEach(el => { sum += el; })
     var average = (sum / array.length);
     return average;
 }

@@ -1,7 +1,7 @@
 function isNumber(array: Array<any>): boolean { // validar se o array e numerico
     let validation: boolean = true;
-    array.forEach(el => {
-        if(typeof(el) !== "number") validation = false;
+    array.forEach(arrayElement => {
+        if(typeof(arrayElement) !== "number") validation = false;
     })
     return validation;
 }
@@ -9,7 +9,7 @@ function isNumber(array: Array<any>): boolean { // validar se o array e numerico
 function average(array: Array<any>): number {
     let sum: number = 0;
 
-    array.forEach(el => { sum += el; })
+    sum = array.reduce((previousValue: number, currentValue: number) =>  previousValue + currentValue);
 
    let average: number = (sum/array.length);
 
@@ -19,6 +19,7 @@ function average(array: Array<any>): number {
 function calculate(array: Array<any>): Array<number> {
     array.sort();
 
+    // corrigir nome das variaveis max, min, mid
     let max: number = array[array.length - 1];
     let min: number = array[0];
     let mid: number = average(array)

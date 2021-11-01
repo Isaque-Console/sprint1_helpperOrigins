@@ -1,8 +1,8 @@
 let initialArray: Array<any> = [1, 5, 4];
 
 let validation: boolean = true;
-initialArray.forEach(el => { // validar se e numerico
-    if(typeof(el) !== "number") validation = false;
+initialArray.forEach(arrayElement => { // validar se e numerico
+    if(typeof(arrayElement) !== "number") validation = false;
 })
 
 if (!validation) {
@@ -11,12 +11,13 @@ if (!validation) {
 else {
     initialArray.sort();
     
+    // corrigir nome das variaves max, min, mid
     let max: number = initialArray[initialArray.length - 1];
     let min: number = initialArray[0];
     
     let sum: number = 0;
     
-    initialArray.forEach(el => { sum += el; })
+    sum = initialArray.reduce((previousValue: number, currentValue: number) =>  previousValue + currentValue);
     
     let average: number = (sum/initialArray.length);
     
