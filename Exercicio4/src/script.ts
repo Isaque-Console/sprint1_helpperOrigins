@@ -19,7 +19,22 @@ const Armazenamento: Object = {
 
 const Cientista: Object = {
     editar(): void {
+        // pega os valores dos inputs
+        let inputNome: HTMLInputElement = document.querySelector("#campo-nome");
+        let inputBio: HTMLInputElement = document.querySelector("#campo-bio");
+        let name: string = inputNome.value;
+        let bio: string = inputBio.value;
         
+        let cientistaEditado: object = {id: Number(id), name, bio};
+        lista = Armazenamento["buscar"]();
+        // substitui o objeto do id selecionado pelo novo objeto
+        lista = lista.map( obj => {
+            if (obj["id"] == id) obj = cientistaEditado;
+
+            return obj;
+        });
+
+        Armazenamento["gravar"](lista);
     },
 
     remover(index:number): void {
@@ -97,31 +112,11 @@ const Formulario: Object = {
         evento.preventDefault();
 
         try {
-            // REFATORAR ISSO EM FUNCOES
             Formulario["validarCampos"]();
-            // pega os valores dos inputs
-            let inputNome: HTMLInputElement = document.querySelector("#campo-nome");
-            let inputBio: HTMLInputElement = document.querySelector("#campo-bio");
-            let name: string = inputNome.value;
-            let bio: string = inputBio.value;
-            // coloca esses dados em um objeto
-            let cientistaEditado: object = {id: Number(id), name, bio};
-            // busca o array do LocalStorage
-            lista = Armazenamento["buscar"]();
-            // substitui o objeto do id selecionado pelo novo objeto
-            lista = lista.map( obj => {
-                if (obj["id"] == id) obj = cientistaEditado;
-
-                return obj;
-            })
-            // grava esse novo array no LocalStorage
-            Armazenamento["gravar"](lista);
-            // fechar o modal
-            document.getElementById("fecharModal").click();
-            // limpa os campos do formulario
+            Cientista["editar"]();
+            document.getElementById("fecharModal").click(); // fechar o modal 
             Formulario["limparCampos"]();
-            // recarregar
-            Aplicativo["recarregar"]();
+            Aplicativo["recarregar"](); // recarregar os dados da tabela
         } catch (error) {
             alert(error.message)
         }
@@ -137,7 +132,7 @@ const Aplicativo: Object = {
         let cientistas: Array<Object> = Armazenamento["buscar"]();
 
         // preencher o DOM com as linhas
-        cientistas.forEach(cientista => { DOM["adicionarCientista"](cientista); });
+        cientistas.forEach(cientista => DOM["adicionarCientista"](cientista) );
     },
 
     recarregar(): void {

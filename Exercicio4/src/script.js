@@ -15,6 +15,20 @@ var Armazenamento = {
 };
 var Cientista = {
     editar: function () {
+        // pega os valores dos inputs
+        var inputNome = document.querySelector("#campo-nome");
+        var inputBio = document.querySelector("#campo-bio");
+        var name = inputNome.value;
+        var bio = inputBio.value;
+        var cientistaEditado = { id: Number(id), name: name, bio: bio };
+        lista = Armazenamento["buscar"]();
+        // substitui o objeto do id selecionado pelo novo objeto
+        lista = lista.map(function (obj) {
+            if (obj["id"] == id)
+                obj = cientistaEditado;
+            return obj;
+        });
+        Armazenamento["gravar"](lista);
     },
     remover: function (index) {
         lista.filter(function (el, i) {
@@ -64,31 +78,11 @@ var Formulario = {
     submeter: function (evento) {
         evento.preventDefault();
         try {
-            // REFATORAR ISSO EM FUNCOES
             Formulario["validarCampos"]();
-            // pega os valores dos inputs
-            var inputNome = document.querySelector("#campo-nome");
-            var inputBio = document.querySelector("#campo-bio");
-            var name_1 = inputNome.value;
-            var bio = inputBio.value;
-            // coloca esses dados em um objeto
-            var cientistaEditado_1 = { id: Number(id), name: name_1, bio: bio };
-            // busca o array do LocalStorage
-            lista = Armazenamento["buscar"]();
-            // substitui o objeto do id selecionado pelo novo objeto
-            lista = lista.map(function (obj) {
-                if (obj["id"] == id)
-                    obj = cientistaEditado_1;
-                return obj;
-            });
-            // grava esse novo array no LocalStorage
-            Armazenamento["gravar"](lista);
-            // fechar o modal
-            document.getElementById("fecharModal").click();
-            // limpa os campos do formulario
+            Cientista["editar"]();
+            document.getElementById("fecharModal").click(); // fechar o modal 
             Formulario["limparCampos"]();
-            // recarregar
-            Aplicativo["recarregar"]();
+            Aplicativo["recarregar"](); // recarregar os dados da tabela
         }
         catch (error) {
             alert(error.message);
@@ -102,7 +96,7 @@ var Aplicativo = {
     carregarDados: function () {
         var cientistas = Armazenamento["buscar"]();
         // preencher o DOM com as linhas
-        cientistas.forEach(function (cientista) { DOM["adicionarCientista"](cientista); });
+        cientistas.forEach(function (cientista) { return DOM["adicionarCientista"](cientista); });
     },
     recarregar: function () {
         DOM["limparCientistas"]();
