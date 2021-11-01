@@ -64,6 +64,7 @@ var Formulario = {
     submeter: function (evento) {
         evento.preventDefault();
         try {
+            // REFATORAR ISSO EM FUNCOES
             Formulario["validarCampos"]();
             // pega os valores dos inputs
             var inputNome = document.querySelector("#campo-nome");

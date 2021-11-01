@@ -97,7 +97,7 @@ const Formulario: Object = {
         evento.preventDefault();
 
         try {
-            // REFATORAR ISSO
+            // REFATORAR ISSO EM FUNCOES
             Formulario["validarCampos"]();
             // pega os valores dos inputs
             let inputNome: HTMLInputElement = document.querySelector("#campo-nome");
