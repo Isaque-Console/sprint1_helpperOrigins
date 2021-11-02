@@ -11,9 +11,8 @@ if (!validation) {
 else {
     initialArray.sort();
     
-    // corrigir nome das variaves max, min, mid
-    let max: number = initialArray[initialArray.length - 1];
-    let min: number = initialArray[0];
+    let largerNumber: number = initialArray[initialArray.length - 1];
+    let smallerNumber: number = initialArray[0];
     
     let sum: number = 0;
     
@@ -21,7 +20,7 @@ else {
     
     let average: number = (sum/initialArray.length);
     
-    let newArray: Array<number> = [min, average, max];
+    let newArray: Array<number> = [smallerNumber, average, largerNumber];
     
     console.log([
         `Menor valor: ${newArray[0]}, Média: ${newArray[1].toFixed(2)}, Maior valor: ${newArray[2]}`

@@ -19,12 +19,11 @@ function average(array: Array<any>): number {
 function calculate(array: Array<any>): Array<number> {
     array.sort();
 
-    // corrigir nome das variaveis max, min, mid
-    let max: number = array[array.length - 1];
-    let min: number = array[0];
-    let mid: number = average(array)
+    let largerNumber: number = array[array.length - 1];
+    let smallerNumber: number = array[0];
+    let AverageNumber: number = average(array);
 
-    return [min, mid, max];
+    return [smallerNumber, AverageNumber, largerNumber];
 }
 
 function generateArray(array: Array<any>): Array<string> {
@@ -39,4 +38,4 @@ function generateArray(array: Array<any>): Array<string> {
     ];
 }
 
-console.log(generateArray([1, "5", 4]));
+console.log(generateArray([1, 5, 4]));
