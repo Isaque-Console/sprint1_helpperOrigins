@@ -12,7 +12,7 @@ function getBio(id: number): string {
     return find["bio"];
 }
 try {
-    console.log(getBio(3));
+    console.log(getBio(2));
 } catch (error) {
     console.log(error);
 }

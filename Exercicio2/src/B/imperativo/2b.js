@@ -4,13 +4,17 @@ var list = [
     { "id": 3, "name": "Nikola Tesla", "bio": "Nikola Tesla foi um inventor, engenheiro eletrotécnico e engenheiro mecânico sérvio, mais conhecido por suas contribuições ao projeto do moderno sistema de fornecimento de eletricidade em corrente alternada." },
     { "id": 4, "name": "Nicolau Copérnico", "bio": "Nicolau Copérnico foi um astrônomo e matemático polonês que desenvolveu a teoria heliocêntrica do Sistema Solar." }
 ];
-var id = -0;
-if (id > 4 || id < 1) { // tratando o erro de passar um id que nao existe
-    console.log("Não existe objeto para o id passado");
+var id = 4;
+var chosenName;
+for (var index = 0; index < list.length; index++) {
+    if (list[index]["id"] == id) {
+        chosenName = list[index]["name"];
+        break;
+    }
 }
-else {
-    var filter = list.filter(function (profile) {
-        return profile["id"] == id;
-    });
-    console.log(filter[0].name);
+try {
+    console.log(chosenName);
+}
+catch (error) {
+    console.log(error);
 }

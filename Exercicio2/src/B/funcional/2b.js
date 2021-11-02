@@ -5,12 +5,12 @@ var list = [
     { "id": 4, "name": "Nicolau Copérnico", "bio": "Nicolau Copérnico foi um astrônomo e matemático polonês que desenvolveu a teoria heliocêntrica do Sistema Solar." }
 ];
 function getName(id) {
-    if (id > 4 || id < 1) { // tratando erro de passar um id que nao existe
-        return "Não existe objeto para o id passado";
-    }
-    var filter = list.filter(function (profile) {
-        return profile["id"] == id;
-    });
-    return filter[0].name;
+    var find = list.find(function (profile) { return profile["id"] == id; }); // pega o objeto com o id passado
+    return find["name"];
 }
-console.log(getName(2));
+try {
+    console.log(getName(4));
+}
+catch (error) {
+    console.log(error);
+}

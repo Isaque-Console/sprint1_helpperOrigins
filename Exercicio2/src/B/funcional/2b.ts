@@ -7,15 +7,12 @@ let list: Array<Object> = [
 
 
 function getName(id: number): string {
-    if (id > 4 || id < 1) { // tratando erro de passar um id que nao existe
-        return "Não existe objeto para o id passado";
-    }
-
-    let filter: Object = list.filter(profile => { // pega o objeto com o id passado
-        return profile["id"] == id;
-    });
+    let find: Object = list.find(profile =>  profile["id"] == id ); // pega o objeto com o id passado
     
-    return filter[0].name
+    return find["name"]        
 }
-
-console.log(getName(2));
+try {
+    console.log(getName(4));    
+} catch (error) {
+    console.log(error);
+}

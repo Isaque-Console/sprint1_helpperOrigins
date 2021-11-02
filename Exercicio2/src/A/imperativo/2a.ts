@@ -5,15 +5,21 @@ let list: Array<Object> = [
     {"id" : 4, "name": "Nicolau Copérnico", "bio": "Nicolau Copérnico foi um astrônomo e matemático polonês que desenvolveu a teoria heliocêntrica do Sistema Solar."}
 ];
 
-let id: number = -0;
+let id: number = 1;
 
-if (id > 4 || id < 1){ // tratando o erro de passar um id que nao existe
-    console.log("Não existe objeto para o id passado");
+// let filter: Object = list.filter(profile => { // pega o objeto com o id passado
+//     return profile["id"] == id;
+// });
+
+let chosenBio: string;
+for (let index = 0; index < list.length; index++) {
+    if ( list[index]["id"] == id ) {
+        chosenBio = list[index]["bio"];
+        break;
+    }
 }
-else{
-    let filter: Object = list.filter(profile => { // pega o objeto com o id passado
-        return profile["id"] == id;
-    });
-    
-    console.log(filter[0].bio);
+try {
+    console.log(chosenBio);
+} catch (error) {
+    console.error(error);
 }
