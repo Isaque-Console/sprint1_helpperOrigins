@@ -7,13 +7,9 @@ let list: Array<Object> = [
 
 
 function remove(id: number): Array<object> {
-    if (id > 4 || id < 1) {
-        return [{ "erro": "Não existe objeto para o id passado"}];
-    }
-
     let newArray: Array<object> = list.filter(obj => obj["id"] != id ) // remove o elemento do indice passado
 
     return newArray;
 }
 
-console.log(remove(3));
+console.log(remove(5));

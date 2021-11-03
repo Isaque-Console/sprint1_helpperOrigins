@@ -5,13 +5,14 @@ let list: Array<Object> = [
     {"id" : 4, "name": "Nicolau Copérnico", "bio": "Nicolau Copérnico foi um astrônomo e matemático polonês que desenvolveu a teoria heliocêntrica do Sistema Solar."}
 ];
 
-let id: number = -1;
+let id: number = 0;
 
-if (id > 4 || id < 1) {
-    console.log([{ "erro": "Não existe objeto para o id passado"}]);
+let newArray: Array<Object> = [];
+
+for (let index = 0; index < list.length; index++) { // adiciona no novo array os objetos com id diferente daquele que se quer apagar
+    if (list[index]["id"] != id) {
+        newArray.push(list[index]);
+    }
 }
-else {
-    let newArray: Array<object> = list.filter(obj => obj["id"] != id ) // remove o elemento do indice passado
-    
-    console.log(newArray);
-}
+
+console.log(newArray);

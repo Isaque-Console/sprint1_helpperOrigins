@@ -7,9 +7,9 @@ let list: Array<Object> = [
 
 
 function getName(id: number): string {
-    let find: Object = list.find(profile =>  profile["id"] == id ); // pega o objeto com o id passado
+    let scientist: Object = list.find(profile =>  profile["id"] == id ); // pega o objeto com o id passado
     
-    return find["name"]        
+    return scientist["name"]        
 }
 try {
     console.log(getName(4));    

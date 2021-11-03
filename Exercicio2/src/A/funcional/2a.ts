@@ -7,9 +7,9 @@ let list: Array<Object> = [
 
 
 function getBio(id: number): string {
-    let find: Object = list.find(profile =>  profile["id"] == id ); // pega o objeto com o id passado
+    let scientist: Object = list.find(profile =>  profile["id"] == id ); // pega o objeto com o id passado
     
-    return find["bio"];
+    return scientist["bio"];
 }
 try {
     console.log(getBio(2));

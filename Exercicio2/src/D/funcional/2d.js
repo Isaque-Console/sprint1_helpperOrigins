@@ -4,15 +4,12 @@ var list = [
     { "id": 3, "name": "Nikola Tesla", "bio": "Nikola Tesla foi um inventor, engenheiro eletrotécnico e engenheiro mecânico sérvio, mais conhecido por suas contribuições ao projeto do moderno sistema de fornecimento de eletricidade em corrente alternada." },
     { "id": 4, "name": "Nicolau Copérnico", "bio": "Nicolau Copérnico foi um astrônomo e matemático polonês que desenvolveu a teoria heliocêntrica do Sistema Solar." }
 ];
-function setProperty(id) {
-    if (id > 4 || id < 1)
-        return [{ "erro": "Não existe objeto para o id passado" }];
-    var property = (id % 2) == 0 ? "bio" : "name";
-    var newArray = list.map(function (obj) {
-        if (obj["id"] == id)
-            obj[property] = property + " alterado(a) com sucesso"; // se o id for par, altera a bio, se for impar, altera o name
-        return obj;
+function setProperty(id, changedField, newValue) {
+    var newArray = list.map(function (scientist) {
+        if (scientist["id"] == id)
+            scientist[changedField] = newValue; // a propriedade do objeto escolhido recebe um novo valor
+        return scientist;
     });
     return newArray;
 }
-console.log(setProperty(3));
+console.log(setProperty(3, "bio", "Nova bio"));

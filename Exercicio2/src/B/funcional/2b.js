@@ -5,8 +5,8 @@ var list = [
     { "id": 4, "name": "Nicolau Copérnico", "bio": "Nicolau Copérnico foi um astrônomo e matemático polonês que desenvolveu a teoria heliocêntrica do Sistema Solar." }
 ];
 function getName(id) {
-    var find = list.find(function (profile) { return profile["id"] == id; }); // pega o objeto com o id passado
-    return find["name"];
+    var scientist = list.find(function (profile) { return profile["id"] == id; }); // pega o objeto com o id passado
+    return scientist["name"];
 }
 try {
     console.log(getName(4));

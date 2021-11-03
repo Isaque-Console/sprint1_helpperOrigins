@@ -7,15 +7,12 @@ let list: Array<Object> = [
 
 let id: number = 2;
 
-if (id > 4 || id < 1) console.log([{ "erro": "Não existe objeto para o id passado"}]);
-else {
-    let property: string = (id % 2) == 0 ? "bio" : "name";
-    
-    let newArray: Array<object> = list.map(obj => {
-        if(obj["id"] == id) obj[property] = `${property} alterado(a) com sucesso`; // se o id for par, altera a bio, se for impar, altera o name
-    
-        return obj;
-    })
-    
-    console.log(newArray);
+let changedField: string = "bio";
+
+let newValue: string = "Nova bio";
+
+for (let index = 0; index < list.length; index++) { // a propriedade do objeto escolhido recebe um novo valor
+    if (list[index]["id"] == id) list[index][changedField] = newValue;
 }
+
+console.log(list);

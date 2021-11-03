@@ -5,19 +5,14 @@ let list: Array<Object> = [
     {"id" : 4, "name": "Nicolau Copérnico", "bio": "Nicolau Copérnico foi um astrônomo e matemático polonês que desenvolveu a teoria heliocêntrica do Sistema Solar."}
 ];
 
-function setProperty(id: number): Array<object> {
-    if (id > 4 || id < 1) return [{ "erro": "Não existe objeto para o id passado"}];
+function setProperty(id: number, changedField: string, newValue: string): Array<object> {    
+    let newArray: Array<object> = list.map(scientist => {
+        if(scientist["id"] == id) scientist[changedField] = newValue; // a propriedade do objeto escolhido recebe um novo valor
 
-    let property: string = (id % 2) == 0 ? "bio" : "name";
-    
-    let newArray: Array<object> = list.map(obj => {
-        if(obj["id"] == id) obj[property] = `${property} alterado(a) com sucesso`; // se o id for par, altera a bio, se for impar, altera o name
-
-        return obj;
+        return scientist;
     })
-
     
     return newArray;
 }
 
-console.log(setProperty(3));
+console.log(setProperty(3, "bio", "Nova bio"));

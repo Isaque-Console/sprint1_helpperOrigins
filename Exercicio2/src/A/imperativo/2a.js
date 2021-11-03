@@ -5,11 +5,8 @@ var list = [
     { "id": 4, "name": "Nicolau Copérnico", "bio": "Nicolau Copérnico foi um astrônomo e matemático polonês que desenvolveu a teoria heliocêntrica do Sistema Solar." }
 ];
 var id = 1;
-// let filter: Object = list.filter(profile => { // pega o objeto com o id passado
-//     return profile["id"] == id;
-// });
 var chosenBio;
-for (var index = 0; index < list.length; index++) {
+for (var index = 0; index < list.length; index++) { // pega a bio do objeto escolhido
     if (list[index]["id"] == id) {
         chosenBio = list[index]["bio"];
         break;

@@ -7,12 +7,8 @@ let list: Array<Object> = [
 
 let id: number = 1;
 
-// let filter: Object = list.filter(profile => { // pega o objeto com o id passado
-//     return profile["id"] == id;
-// });
-
 let chosenBio: string;
-for (let index = 0; index < list.length; index++) {
+for (let index = 0; index < list.length; index++) { // pega a bio do objeto escolhido
     if ( list[index]["id"] == id ) {
         chosenBio = list[index]["bio"];
         break;

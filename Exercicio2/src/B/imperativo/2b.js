@@ -6,7 +6,7 @@ var list = [
 ];
 var id = 4;
 var chosenName;
-for (var index = 0; index < list.length; index++) {
+for (var index = 0; index < list.length; index++) { // pega o nome do objeto escolhido
     if (list[index]["id"] == id) {
         chosenName = list[index]["name"];
         break;

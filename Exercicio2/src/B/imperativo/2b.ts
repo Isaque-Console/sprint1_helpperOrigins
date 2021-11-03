@@ -9,7 +9,7 @@ let id: number = 4;
 
 let chosenName: string;
 
-for (let index = 0; index < list.length; index++) {
+for (let index = 0; index < list.length; index++) { // pega o nome do objeto escolhido
     if ( list[index]["id"] == id ) {
         chosenName = list[index]["name"];
         break;

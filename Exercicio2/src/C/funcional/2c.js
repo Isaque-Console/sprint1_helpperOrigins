@@ -5,10 +5,7 @@ var list = [
     { "id": 4, "name": "Nicolau Copérnico", "bio": "Nicolau Copérnico foi um astrônomo e matemático polonês que desenvolveu a teoria heliocêntrica do Sistema Solar." }
 ];
 function remove(id) {
-    if (id > 4 || id < 1) {
-        return [{ "erro": "Não existe objeto para o id passado" }];
-    }
     var newArray = list.filter(function (obj) { return obj["id"] != id; }); // remove o elemento do indice passado
     return newArray;
 }
-console.log(remove(3));
+console.log(remove(5));
