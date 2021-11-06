@@ -94,7 +94,7 @@ const Formulario: Object = {
         }
     },    
     
-    limparCampos() {
+    limparCampos(): void {
         let inputNome: HTMLInputElement = document.querySelector("#campo-nome");
         let inputBio: HTMLInputElement = document.querySelector("#campo-bio");
 
