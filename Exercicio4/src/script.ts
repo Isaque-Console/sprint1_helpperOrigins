@@ -12,7 +12,7 @@ const Armazenamento: Object = {
         return JSON.parse(localStorage.getItem("helpper.origins:cientistas")) || [];
     },
 
-    gravar(cientistas: Object) {
+    gravar(cientistas: Object): void {
         localStorage.setItem("helpper.origins:cientistas", JSON.stringify(cientistas));
     }
 }
